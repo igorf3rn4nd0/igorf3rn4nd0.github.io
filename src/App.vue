@@ -16,17 +16,16 @@
 				<component :is="section.component" />
 			</template>
 		</FullPage>
-		<div class="padding absolute top right">
-			<button class="transparent circle" @click="toggleTheme">
-				<i>{{ currentMode === 'dark' ? 'dark_mode' : 'light_mode' }}</i>
-			</button>
-  	</div>
 	</main>
+	<div class="padding absolute top right" style="top: -20px;">
+		<IncandescentLamp :isOn="currentMode === 'light'" @toggle="toggleTheme" />
+	</div>
 </template>
 
 <script setup>
 import FullPage from './components/FullPage.vue'
-import { ref, onMounted, watch, markRaw } from 'vue'
+import IncandescentLamp from './components/IncandescentLamp.vue'
+import { ref, onMounted, watch, markRaw, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 import Home from './components/Home.vue'
 import About from './components/About.vue'
@@ -51,6 +50,7 @@ const toggleTheme = () => {
   currentMode.value = ui('mode')
   const newMode = currentMode.value === 'dark' ? 'light' : 'dark'
   ui('mode', newMode)
+	currentMode.value = ui('mode')
 }
 
 // Observa mudanças na hash da URL
@@ -61,8 +61,11 @@ watch(() => route.hash, (newHash) => {
 	}
 }, { immediate: true })
 
+onBeforeMount(() => {
+	ui('mode', 'dark')
+})
+
 onMounted(() => {
-	currentMode.value = ui('mode')
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
 			if (entry.isIntersecting && entry.intersectionRatio > 0.5) {

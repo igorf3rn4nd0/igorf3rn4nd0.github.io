@@ -7,6 +7,7 @@
         class="section" 
 			>
         <slot :name="section.id"></slot>
+        <div class="s space"></div>
       </section>
     </div>
   </template>

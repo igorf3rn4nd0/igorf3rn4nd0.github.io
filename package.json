@@ -12,6 +12,7 @@
     "@vueuse/core": "^12.8.2",
     "beercss": "^3.9.7",
     "material-dynamic-colors": "^1.1.2",
+    "motion": "^12.4.10",
     "vue": "^3.5.13",
     "vue-router": "4"
   },
