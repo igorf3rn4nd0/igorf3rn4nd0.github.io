@@ -1,22 +1,25 @@
 <template>
   <div class="lamp-container" @click="toggleLight">
     <div class="lamp">
-      <img v-if="isOn" style="width: 30px;" src="/lamp-on.png" alt="Lamp">
+      <img v-if="modelValue === 'light'" style="width: 30px;" src="/lamp-on.png" alt="Lamp">
       <img v-else style="width: 30px;" src="/lamp-off.png" alt="Lamp">
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, defineEmits, defineModel } from 'vue'
+import { defineEmits, defineModel } from 'vue'
 import { animate } from 'motion'
 
 const emit = defineEmits(['toggle'])
 
-const isOn = defineModel('isOn', { required: true })
+const modelValue = defineModel('modelValue', { required: true })
 
 const toggleLight = () => {
-  emit('toggle')
+  const newMode = modelValue.value === 'dark' ? 'light' : 'dark'
+	ui('mode', newMode)
+  emit('toggle', newMode)
+  modelValue.value = newMode
   animate('.lamp', { 
     rotate: [-10, 10, -5, 5, -2, 2, -1, 1, 0] 
   }, { 
