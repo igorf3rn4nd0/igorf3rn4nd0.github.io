@@ -1,0 +1,7 @@
+3 abas sobre serviços que ofereço
+primeira sendo desenvolvimento de explicações
+cada uma com slide de cards com animação suave, com cada card sendo um diferencial daquele serviço, ex: design responsivo, 
+
+aba contato simples e avançado
+simples: link para email, whats e etc
+avançado: formulário com, nome, email, resumo do projeto, data da reunião

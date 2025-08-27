@@ -1,17 +1,42 @@
 <template>
 	<section class="section">
 		<article class="no-padding round">
-			<svg viewBox="600 400 300 300" class="responsive medium fill">
-				<rect fill="rgba(var(--primary-color))" width="1600" height="900"></rect>
-				<polygon v-for="polygon in polygons" :fill="polygon.fill" :points="polygon.points"></polygon>
-			</svg>
+			<img class="responsive medium top-round" src="/about.jpg">
 			<div class="padding">
-				<h4>Um pouco sobre mim</h4>
+				<h5>Um pouco sobre mim</h5>
+				<div class="padding large-text ">
+						<p>🚀 6 anos focado em projetos de alta demanda.</p>
+						<p>👨🏻‍🎓 Especializado em frontend com Vue e backend robusto com Java e .NET.</p>
+						<p>💻 Apaixonado por boas práticas e performance.</p>
+					</div>
+			</div>
+		</article>
+		<!-- <article class="no-padding round" style="max-width: 50rem;">
+			<div class="grid no-space">
+				<div class="s12 m5">
+					<img class="responsive round extra" src="/about.jpg">
+					<div class="absolute top-round top left right large-padding white-text dark top-shadow">
+						<h5>A estrada até aqui</h5>
+					</div>
+				</div>
+				<div class="s12 m7 middle">
+					<div class="padding large-text ">
+						<p>🚀 6 anos focado em projetos de alta demanda.</p>
+						<p>🧑🏼‍🎓 Especializado em frontend com Vue e backend robusto com Java e .NET.</p>
+						<p>💻 Apaixonado por boas práticas e performance.</p>
+					</div>
+				</div>
+			</div>
+		</article> -->
+		<!-- <article class="no-padding round">
+			<img class="responsive small top-round" src="/about.jpg">
+			<div class="padding">
+				<h5>Um pouco sobre mim</h5>
 				<p>🚀 6 anos focado em projetos de alta demanda.</p>
 				<p>Especializado em frontend com Vue e backend robusto com Java e .NET.</p>
 				<p>Apaixonado por boas práticas e performance.</p>
 			</div>
-		</article>
+		</article> -->
 	</section>
 </template>
 
@@ -69,3 +94,7 @@ const polygons = ref([
 	
 ])
 </script>
+
+<style scoped>
+
+</style>
